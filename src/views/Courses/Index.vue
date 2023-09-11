@@ -10,6 +10,7 @@ export default {
 <script setup>
 import { storeToRefs } from 'pinia';
 import { userCoursesStore } from '../../stores/courses';
+import Curse from '../../components/Courses/Course.vue';
 const store = userCoursesStore();
 //cuando desustructuramos perdemos reactividad
 const {courses,loading, error} = storeToRefs(store);
@@ -29,7 +30,7 @@ fetchCourses();
     <p v-if="error">{{error.message  }}</p>
     <main class="courses" v-if="courses.length">
         <div class="course" v-for="course in courses" :key="course.id">
-            {{ course }}
+            <Curse :course="course" />
         </div>
     </main>
     <div v-else class="empty">
