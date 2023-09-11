@@ -15,7 +15,7 @@ const store = userCoursesStore();
 //cuando desustructuramos perdemos reactividad
 const {courses,loading, error} = storeToRefs(store);
 
-const {fetchCourses} = userCoursesStore();
+const {fetchCourses,deleteCourse} = userCoursesStore();
 
 fetchCourses();
 
@@ -30,12 +30,12 @@ fetchCourses();
     <p v-if="error">{{error.message  }}</p>
     <main class="courses" v-if="courses.length">
         <div class="course" v-for="course in courses" :key="course.id">
-            <Curse :course="course" />
+            <Curse :course="course" @delete="deleteCourse"/>
         </div>
     </main>
-    <div v-else class="empty">
-        <p>No hay cursos disponibles</p>
-    </div>
+    <p v-else class="empty">
+        No hay cursos disponibles
+    </p>
 </template>
 <style>
 .courses-wrapper {

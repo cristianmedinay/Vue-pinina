@@ -27,42 +27,43 @@ defineEmits(['submit']);
 <template>
     <div class="course-form-wrapper"> 
 
-        <form @sumit.prevent="$emit('submit')">
-            <div class="form-group">
-                <label for="title">Título</label>
-                <input
-                id="title"
-                v-model="course.title"
-                />
-            </div>
+ <form @submit.prevent="$emit('submit')">
 
-            <div class="form-group">
-                <label for="author">Autor</label>
-                <input
-                    id="author"
-                    v-model="course.author"
-                />
-            </div>
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input
+          id="title"
+          v-model="course.title"
+        />
+      </div>
 
-            <div class="form-group">
-                <label for="summary">Resumen</label>
-                <input
-                    id="summary"
-                    v-model="course.summary"
-                />
-            </div>
+      <div class="form-group">
+        <label for="author">Autor</label>
+        <input
+            id="author"
+            v-model="course.author"
+        />
+      </div>
 
-            <div class="form-group">
-                <label for="description">Descripción</label>
-                <textarea
-                    id="description"
-                    v-model="course.description"
-                ></textarea>
-            </div>
+      <div class="form-group">
+        <label for="summary">Resumen</label>
+        <input
+            id="summary"
+            v-model="course.summary"
+        />
+      </div>
 
-            <button type="submit">{{ textButton }}</button>
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+            id="description"
+            v-model="course.description"
+        ></textarea>
+      </div>
 
-        </form>
+      <button type="submit">{{ textButton }}</button>
+
+    </form>
 
     </div>
 
